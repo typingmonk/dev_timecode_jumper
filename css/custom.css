@@ -1,0 +1,7 @@
+div.top-div {
+    margin-top: 20px;
+}
+
+tr[id^=s-] {
+    cursor: pointer;
+}

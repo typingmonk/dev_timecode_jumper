@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="./css/datatables.min.css" rel="stylesheet">
+    <link href="./css/custom.css" rel="stylesheet">
+    <script src="./js/datatables.min.js"></script>
+</head>
+<body>
+    <div class="container top-div">
+        <div class="row">
+            <div class="col-6">
+                <div>
+                    時間:
+                    <span id="text">0</span>
+                </div>
+                <div>
+                    <table id="subtitle-table" class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Text</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-6">
+                <video id="video" controls width=600>
+                  <source src="./video/video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+    <script src="./subtitles/subtitles.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
