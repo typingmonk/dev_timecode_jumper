@@ -2,6 +2,14 @@ div.top-div {
     margin-top: 20px;
 }
 
+#subtitle-table td {
+  border: 1px solid black;
+}
+
+.dataTable th {
+  border: 1px solid black;
+}
+
 tr[id^=s-] {
     cursor: pointer;
 }
