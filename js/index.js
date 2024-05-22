@@ -2,7 +2,7 @@
 if(Hls.isSupported()) {
   const video = document.getElementById('video');
   var hls = new Hls();
-  hls.loadSource('https://h264media01.ly.gov.tw:443/vod_1/_definst_/mp4:1M/8398b1826590a609f29642a92acb28a5a24474907b6cbea146d53a332764a535b7f2b76914fa53475ea18f28b6918d91.mp4/playlist.m3u8');
+  hls.loadSource('https://h264media01.ly.gov.tw:443/vod_1/_definst_/mp4:1M/8398b1826590a609f29642a92acb28a5ad9f551ce5fa921f46d53a332764a535d0f764607afe74625ea18f28b6918d91.mp4/playlist.m3u8');
   hls.attachMedia(video);
 }
 
@@ -24,6 +24,7 @@ table.columns.adjust().draw();
 table.on('select', function (e, dt, type, index) {
   data = table.row(index).data();
   video.currentTime = timeStringToSeconds(data[0]);
+  console.log(timeStringToSeconds(data[0]));
   video.play();
   video.focus();
 });
@@ -39,7 +40,7 @@ video.addEventListener("timeupdate", function(event) {
 
 // H:i:s.u to s
 function timeStringToSeconds(timeString) {
-    const parts = timeString.split(/[:.]/).map(parseFloat);
+    const parts = timeString.split(/[:,]/).map(parseFloat);
     let totalSeconds = 0;
 
     // Convert hours to seconds
