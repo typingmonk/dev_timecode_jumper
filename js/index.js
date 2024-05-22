@@ -2,7 +2,7 @@
 if(Hls.isSupported()) {
   const video = document.getElementById('video');
   var hls = new Hls();
-  hls.loadSource('https://ivod-lyvod.cdn.hinet.net/vod_1/_definst_/mp4:1MClips/b530b79967bb1991daa355bfc86416df0cad809fe5ec353a5d4d239a786f802f1a911ee759332f825ea18f28b6918d91.mp4/playlist.m3u8');
+  hls.loadSource('https://h264media01.ly.gov.tw:443/vod_1/_definst_/mp4:1M/8398b1826590a609f29642a92acb28a5a24474907b6cbea146d53a332764a535b7f2b76914fa53475ea18f28b6918d91.mp4/playlist.m3u8');
   hls.attachMedia(video);
 }
 
