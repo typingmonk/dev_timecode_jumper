@@ -1,32 +1,41 @@
-// Get and display current time of the video
-const video = document.getElementById("video");
-const text = document.getElementById("text");
-video.addEventListener("timeupdate", function(event) {
-  text.innerText = this.currentTime;
-});
+// load video via hls.js
+if(Hls.isSupported()) {
+  const video = document.getElementById('video');
+  var hls = new Hls();
+  hls.loadSource('https://ivod-lyvod.cdn.hinet.net/vod_1/_definst_/mp4:1MClips/b530b79967bb1991daa355bfc86416df0cad809fe5ec353a5d4d239a786f802f1a911ee759332f825ea18f28b6918d91.mp4/playlist.m3u8');
+  hls.attachMedia(video);
+}
 
 // Inital DataTables
 const table = $('#subtitle-table').DataTable({
+  select: true,
   ordering: false,
-  paging: false,
   scrollCollapse: true,
   scrollY: '200px',
+  paging: false,
   fixedHeader: true,
-  rowCallback: function(row, data, index) {
+  createdRow: function (row, data, index) {
     $(row).attr('id', 's-' + index);
-  }
+  },
 });
 
 table.rows.add(subtitles).draw(false);
 table.columns.adjust().draw();
-
-// Add event listener for each row in table
-$("[id^='s-']").on('click', function(event) {
-    const startTime = $(this).find('td:first').text();
-    video.currentTime = timeStringToSeconds(startTime);
-    video.play();
-    video.focus();
+table.on('select', function (e, dt, type, index) {
+  data = table.row(index).data();
+  video.currentTime = timeStringToSeconds(data[0]);
+  video.play();
+  video.focus();
 });
+
+// Get and display current time of the video
+const text = document.getElementById("text");
+video.addEventListener("timeupdate", function(event) {
+  text.innerText = this.currentTime;
+  //table.row(30).scrollTo();
+  //$('#s-28').addClass('table-primary');
+});
+
 
 // H:i:s.u to s
 function timeStringToSeconds(timeString) {
